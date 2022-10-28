@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import HeroSlider, { Slide } from "hero-slider";
+import React from "react";
+// import HeroSlider, { Slide } from "hero-slider";
 import Button from "./Button";
 
 const Carousel = () => {
-    const slides = [
-        "./images/slide1.jpg",
-        "./images/slide2.jpg",
-        "./images/slide3.jpg",
-    ];
+    // const slides = [
+    //     "./images/slide1.jpg",
+    //     "./images/slide2.jpg",
+    //     "./images/slide3.jpg",
+    // ];
     // const [currentIndex, setCurrentIndex] = useState(0);
     // const [displayIndex, setDisplayIndex] = useState(0);
 
