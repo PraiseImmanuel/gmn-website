@@ -2,9 +2,9 @@ import React from "react";
 
 const Mission = () => {
     return (
-        <div className="flex flex-col items-center lg:flex-row space-x-4 text-center lg:items-stretch mt-16 text-white justify-center">
-            <div className="mission w-1/3 p-8 bg-green">
-                <h3 className="text-xl font-bold text-black pb-5">
+        <div className="flex flex-col items-center lg:flex-row lg:space-x-4 text-center lg:items-stretch mt-16 text-white justify-center">
+            <div className="mission w-full sm:w-4/5 lg:w-1/3 p-8 bg-green">
+                <h3 className="text-xl font-bold text-white pb-5">
                     Exposure role modelling
                 </h3>
                 <p>
@@ -15,8 +15,8 @@ const Mission = () => {
                 </p>
             </div>
 
-            <div className="mission w-1/3 p-5 bg-green">
-                <h3 className="text-xl font-bold text-black pb-5">
+            <div className="mission w-full sm:w-4/5 lg:w-1/3 p-8 bg-green">
+                <h3 className="text-xl font-bold text-white pb-5">
                     Connection and Programme Management
                 </h3>
                 <p>
