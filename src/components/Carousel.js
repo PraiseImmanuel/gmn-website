@@ -120,7 +120,7 @@ const Carousel = () => {
     return (
         <div className="carousel relative">
             <div className="absolute carousel-text z-10 md:ml-16 p-3">
-                <h1 className="font-roboto text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-bronze font-bold bg-white/[0.5] m-0 p-1 sm:p-2 sm:px-4 border-b-4">
+                <h1 className="font-roboto text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-blueGreen font-bold bg-white/[0.5] m-0 p-1 sm:p-2 sm:px-4 border-b-4">
                     Raising Total Men
                 </h1>
                 <Button
