@@ -14,27 +14,27 @@ const Nav = () => {
                     {/* Menu Items */}
                     <ul className=" hidden space-x-8 lg:flex lg:justify-center">
                         <li className="py-5 navigation-link">
-                            <a className="text-black font-medium" href="/">
+                            <a className="text-myBlack font-medium" href="/">
                                 Home
                             </a>
                         </li>
                         <li className="py-5 navigation-link">
-                            <a className="text-black font-medium" href="/">
+                            <a className="text-myBlack font-medium" href="/">
                                 About Us
                             </a>
                         </li>
                         <li className="py-5 navigation-link">
-                            <a className="text-black font-medium" href="/">
+                            <a className="text-myBlack font-medium" href="/">
                                 Get Involved
                             </a>
                         </li>
                         <li className="py-5 navigation-link">
-                            <a className="text-black font-medium" href="/">
+                            <a className="text-myBlack font-medium" href="/">
                                 Events/Activities
                             </a>
                         </li>
                         <li className="py-5 navigation-link">
-                            <a className="text-black font-medium" href="/">
+                            <a className="text-myBlack font-medium" href="/">
                                 Gallery
                             </a>
                         </li>

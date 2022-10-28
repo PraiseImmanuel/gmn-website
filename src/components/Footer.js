@@ -4,7 +4,7 @@ import Button from "./Button";
 const Footer = () => {
     return (
         <footer className="flex justify-center bg-green py-8 text-white text-center md:text-left">
-            <div className="flex flex-col md:flex-row md:justify-between footer space-x-4 w-full md:w-5/6 lg:4/5 items-center">
+            <div className="flex flex-col md:flex-row md:justify-between footer md:space-x-4 w-full md:w-5/6 lg:4/5 items-center">
                 <div className="logo-and-links flex flex-col items-center justify-center md:items-start">
                     {/* logo */}
                     <div className="logo w-36">
@@ -35,7 +35,7 @@ const Footer = () => {
                 </div>
 
                 {/* navigation links */}
-                <ul className="flex flex-col md:flex-row md:space-x-6 lg:space-x-12">
+                <ul className="flex flex-col md:flex-row md:space-x-6 lg:space-x-12 ml-0">
                     <div className="group-one">
                         <li className="nav-link pt-3 md:pt-0">
                             <a href="/">About</a>
@@ -64,8 +64,11 @@ const Footer = () => {
                         color={"text-white"}
                         hoverBg={"bg-white"}
                         hoverColor={"text-green"}
+                        className={"mt-4"}
                     />
-                    <p className="pt-3">@Praise Immanuel All Rights Reserved</p>
+                    <p className="pt-3 copyright">
+                        @Praise Immanuel All Rights Reserved
+                    </p>
                 </div>
             </div>
         </footer>

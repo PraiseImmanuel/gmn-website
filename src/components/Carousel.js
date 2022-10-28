@@ -1,5 +1,5 @@
-import React from "react";
-// import HeroSlider, { Slide } from "hero-slider";
+import React, { useState, useEffect } from "react";
+import HeroSlider, { Slide } from "hero-slider";
 import Button from "./Button";
 
 const Carousel = () => {
@@ -90,53 +90,37 @@ const Carousel = () => {
     //         </div>
     //     </div>
     // );
-    // return (
-    //     <HeroSlider
-    //         slideAnimation="left_to_right"
-    //         orientation="horizontal"
-    //         intial-slide={1}
-    //         style={{
-    //             backgroundColor: "rgba(0,0,0,0.33)",
-    //         }}
-    //         settings={{
-    //             slidingDuration: 250,
-    //             slidingDelay: 100,
-    //             shouldAutoPlay: true,
-    //             autoplayDuration: 5000,
-    //             height: "100vh",
-    //         }}
-    //     >
-    //         <Slide
-    //             background={{
-    //                 backgroundImage: "./images/slide1.jpg",
-    //                 backgroundAttachment: "fixed",
-    //             }}
-    //         />
 
-    //         <Slide
-    //             background={{
-    //                 backgroundI: "./images/slide2.jpg",
-    //                 backgroundAttachment: "fixed",
-    //             }}
-    //         />
+    const [height, setHeight] = useState(200);
+    const getWindowSize = () => {
+        const { innerWidth, innerHeight } = window;
+        return { innerWidth, innerHeight };
+    };
+    const [windowSize, setWindowSize] = useState(getWindowSize());
 
-    //         <Slide
-    //             background={{
-    //                 backgroundImage: "./images/slide3.jpg",
-    //                 backgroundAttachment: "fixed",
-    //             }}
-    //         />
-    //     </HeroSlider>
-    // );
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+
+        window.addEventListener("resize", handleWindowResize);
+
+        return () => {
+            window.removeEventListener("resize", handleWindowResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        const setSliderHeight = () => {
+            setHeight((windowSize.innerWidth / 1004) * 600);
+        };
+        setSliderHeight();
+    }, [windowSize]);
 
     return (
-        <div
-            id="carouselExampleIndicators"
-            class="carousel mt-20 slide relative  md:mt-0"
-            data-bs-ride="carousel"
-        >
-            <div className="absolute top-1/3 z-10 md:ml-16  p-3">
-                <h1 className="font-roboto text-3xl sm:text-4xl md:text-5xl text-blueGreen font-bold bg-white/[0.5] p-2 px-4 border-b-4">
+        <div className="carousel relative">
+            <div className="absolute carousel-text z-10 md:ml-16 p-3">
+                <h1 className="font-roboto text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-bronze font-bold bg-white/[0.5] m-0 p-1 sm:p-2 sm:px-4 border-b-4">
                     Raising Total Men
                 </h1>
                 <Button
@@ -144,79 +128,141 @@ const Carousel = () => {
                     color={"text-white"}
                     hoverBg={"bg-green"}
                     text={"Connect with us"}
+                    className={"mt-2 sm:mt-4 connect"}
                 />
             </div>
-            <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-                <button
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                ></button>
-                <button
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                ></button>
-                <button
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                ></button>
-            </div>
-            <div class="carousel-inner relative w-full overflow-hidden">
-                <div class="carousel-item active float-left w-full">
-                    <img
-                        src="./images/slide1.jpg"
-                        class="block w-full grayscale"
-                        alt="Wild Landscape"
-                    />
-                </div>
-                <div class="carousel-item float-left w-full">
-                    <img
-                        src="./images/slide2.jpg"
-                        class="block w-full grayscale"
-                        alt="Camera"
-                    />
-                </div>
-                <div class="carousel-item float-left w-full">
-                    <img
-                        src="./images/slide3.jpg"
-                        class="block w-full grayscale"
-                        alt="Exotic Fruits"
-                    />
-                </div>
-            </div>
-            <button
-                class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev"
+            <HeroSlider
+                slideAnimation="left_to_right"
+                orientation="horizontal"
+                intial-slide={1}
+                style={{
+                    backgroundColor: "rgba(0,0,0,0.33)",
+                    maxHeight: "fit-content",
+                }}
+                settings={{
+                    slidingDuration: 50,
+                    slidingDelay: 50,
+                    shouldAutoPlay: true,
+                    autoplayDuration: 100,
+                }}
+                height={`${height}px`}
+                autoplay
             >
-                <span
-                    class="carousel-control-prev-icon inline-block bg-no-repeat"
-                    aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-                class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next"
-            >
-                <span
-                    class="carousel-control-next-icon inline-block bg-no-repeat"
-                    aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                <Slide
+                    background={{
+                        backgroundImageSrc: "./images/slide1.jpg",
+                        backgroundAttachment: "fixed",
+                        backgroundImageClassName: "slide",
+                    }}
+                />
+
+                <Slide
+                    background={{
+                        backgroundImageSrc: "./images/slide2.jpg",
+                        backgroundAttachment: "fixed",
+                        backgroundImageClassName: "slide",
+                    }}
+                />
+
+                <Slide
+                    background={{
+                        backgroundImageSrc: "./images/slide3.jpg",
+                        backgroundAttachment: "fixed",
+                        backgroundImageClassName: "slide",
+                    }}
+                />
+            </HeroSlider>
         </div>
     );
+
+    // return (
+    //     <div
+    //         id="carouselExampleIndicators"
+    //         class="carousel mt-20 slide relative  md:mt-0"
+    //         data-bs-ride="carousel"
+    //     >
+    //         <div className="absolute top-1/3 z-10 md:ml-16  p-3">
+    //             <h1 className="font-roboto text-3xl sm:text-4xl md:text-5xl text-blueGreen font-bold bg-white/[0.5] p-2 px-4 border-b-4">
+    //                 Raising Total Men
+    //             </h1>
+    //             <Button
+    //                 bg={"bg-blueGreen"}
+    //                 color={"text-white"}
+    //                 hoverBg={"bg-green"}
+    //                 text={"Connect with us"}
+    //             />
+    //         </div>
+    //         <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+    //             <button
+    //                 type="button"
+    //                 data-bs-target="#carouselExampleIndicators"
+    //                 data-bs-slide-to="0"
+    //                 class="active"
+    //                 aria-current="true"
+    //                 aria-label="Slide 1"
+    //             ></button>
+    //             <button
+    //                 type="button"
+    //                 data-bs-target="#carouselExampleIndicators"
+    //                 data-bs-slide-to="1"
+    //                 aria-label="Slide 2"
+    //             ></button>
+    //             <button
+    //                 type="button"
+    //                 data-bs-target="#carouselExampleIndicators"
+    //                 data-bs-slide-to="2"
+    //                 aria-label="Slide 3"
+    //             ></button>
+    //         </div>
+    //         <div class="carousel-inner relative w-full overflow-hidden">
+    //             <div class="carousel-item active float-left w-full">
+    //                 <img
+    //                     src="./images/slide1.jpg"
+    //                     class="block w-full grayscale"
+    //                     alt="Wild Landscape"
+    //                 />
+    //             </div>
+    //             <div class="carousel-item float-left w-full">
+    //                 <img
+    //                     src="./images/slide2.jpg"
+    //                     class="block w-full grayscale"
+    //                     alt="Camera"
+    //                 />
+    //             </div>
+    //             <div class="carousel-item float-left w-full">
+    //                 <img
+    //                     src="./images/slide3.jpg"
+    //                     class="block w-full grayscale"
+    //                     alt="Exotic Fruits"
+    //                 />
+    //             </div>
+    //         </div>
+    //         <button
+    //             class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+    //             type="button"
+    //             data-bs-target="#carouselExampleIndicators"
+    //             data-bs-slide="prev"
+    //         >
+    //             <span
+    //                 class="carousel-control-prev-icon inline-block bg-no-repeat"
+    //                 aria-hidden="true"
+    //             ></span>
+    //             <span class="visually-hidden">Previous</span>
+    //         </button>
+    //         <button
+    //             class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+    //             type="button"
+    //             data-bs-target="#carouselExampleIndicators"
+    //             data-bs-slide="next"
+    //         >
+    //             <span
+    //                 class="carousel-control-next-icon inline-block bg-no-repeat"
+    //                 aria-hidden="true"
+    //             ></span>
+    //             <span class="visually-hidden">Next</span>
+    //         </button>
+    //     </div>
+    // );
 };
 
 export default Carousel;

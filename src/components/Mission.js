@@ -15,7 +15,7 @@ const Mission = () => {
                 </p>
             </div>
 
-            <div className="mission w-full sm:w-4/5 lg:w-1/3 p-8 bg-green">
+            <div className="mission w-full sm:w-4/5 lg:w-1/3 p-8 bg-green mt-1 lg:mt-0">
                 <h3 className="text-xl font-bold text-white pb-5">
                     Connection and Programme Management
                 </h3>

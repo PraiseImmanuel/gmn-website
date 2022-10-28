@@ -11,9 +11,10 @@ module.exports = {
 
         extend: {
             colors: {
-                blueGreen: "#25a896",
-                green: "#2c7c3d",
-                myBlack: "#402416",
+                blueGreen: "#2C9D91",
+                green: "#3A7A4E",
+                myBlack: "rgb(40, 40, 40)",
+                bronze: "#CD7F20",
             },
             fontFamily: {
                 roboto: ["Roboto", "sans-serif"],

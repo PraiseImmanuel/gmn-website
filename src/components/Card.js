@@ -1,10 +1,12 @@
 import React from "react";
 import Button from "./Button";
 
-const Card = ({ imgSrc, heading, content }) => {
+const Card = ({ imgSrc, heading, content, bgColor }) => {
     return (
-        <div className="flex flex-col container mt-2 w-full lg:w-1/4 bg-blueGreen lg:pt-2 pb-4 lg:-mt-4 relative">
-            <h3 className="heading font-roboto text-white text-xl md:text-2xl  text-center py-6">
+        <div
+            className={`flex flex-col container mt-2 w-full lg:w-1/4 ${bgColor} lg:pt-2 pb-4 lg:-mt-4 relative`}
+        >
+            <h3 className="heading font-roboto text-white text-xl md:text-2xl  text-center py-4 md:py-6">
                 {heading}
             </h3>
             <div className="image">
