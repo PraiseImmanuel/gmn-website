@@ -4,7 +4,7 @@ import Button from "./Button";
 const Discover = () => {
     return (
         <div className="flex flex-col w-full h-56 bg-blueGreen mt-24 text-center justify-center">
-            <h3 className="text-white text-3xl md:text-4xl font-roboto font-bold px-4">
+            <h3 className="text-white text-3xl md:text-4xl font-bold px-4">
                 Guys Mentorship Network
             </h3>
             <p className="text-white text-base md:text-2xl pt-4">

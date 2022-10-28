@@ -3,32 +3,38 @@ import Card from "./Card";
 
 const CardHolder = () => {
     return (
-        <div className=" flex flex-col justify-center items-center lg:items-stretch lg:space-x-4 lg:flex-row z-20 mx-5">
+        <div className=" flex flex-col relative justify-center items-center lg:items-stretch lg:space-x-4 lg:flex-row z-10 mx-5">
             <Card
-                imgSrc={"./images/slide1.jpg"}
+                imgSrc={"./images/getinvolved.jpg"}
                 heading={"Get Involved"}
                 content={
-                    "Mentor a boy child offers a helping hand with the transition from childhood to adulthood."
+                    "Guys mentorship network reaches out to young males, and equips them with life skills and values to become total men."
                 }
                 bgColor={"bg-bronze"}
+                buttonText={"Discover more"}
+                buttonColor={"text-bronze"}
             />
 
             <Card
-                imgSrc={"./images/slide1.jpg"}
+                imgSrc={"./images/donate.jpg"}
                 heading={"Would you like to donate"}
                 content={
-                    "We all have dreams in life, but it takes good planning, goals and certain values and mentality to reach those goals. Help us help a boy child make better life decisions."
+                    "Young boys need to gain emotional and social support to build them on their path in life. Help us raise total men on whose sholder the nation can rise."
                 }
                 bgColor={"bg-blueGreen"}
+                buttonText={"Discover more"}
+                buttonColor={"text-blueGreen"}
             />
 
             <Card
-                imgSrc={"./images/slide1.jpg"}
+                imgSrc={"./images/bmc.jpg"}
                 heading={"Upcoming Event"}
                 content={
-                    "Goals and certain values and mentality to reach those goals. Help us help a boy child make better life decisions."
+                    "Boys Mentorship Conference is an annual event where we reach out to a thousand boys to be taught, mentored and transformed into societally healthy boys."
                 }
                 bgColor={"bg-bronze"}
+                buttonText={"Learn more"}
+                buttonColor={"text-bronze"}
             />
         </div>
     );
